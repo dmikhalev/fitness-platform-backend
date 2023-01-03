@@ -1,0 +1,49 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.6.3'
+    id 'io.spring.dependency-management' version '1.1.0'
+}
+
+allprojects {
+    apply {
+        plugin 'java'
+    }
+    group = 'ru.roadmap'
+    version = '0.0.1-SNAPSHOT'
+    sourceCompatibility = '17'
+    ext {
+//spring
+        spring_ver = "5.3.7"
+        springboot_ver = "2.6.3"
+        mapstruct_ver = '1.4.2.Final'
+        spring_security_ver = "5.5.0"
+//db
+        postgre_ver = '42.2.18'
+        spring_data_ver = "2.3.6.RELEASE"
+
+        lombok_ver = '1.18.24'
+        jackson_ver = '2.12.0'
+    }
+    repositories {
+        mavenCentral()
+    }
+    tasks.named('test') {
+        useJUnitPlatform()
+    }
+    dependencies {
+        compileOnly "org.projectlombok:lombok:$lombok_ver"
+        annotationProcessor "org.projectlombok:lombok:$lombok_ver"
+    }
+    test {
+        useJUnitPlatform()
+    }
+}
+dependencies {
+    implementation project(":fitness-api")
+    implementation project(":fitness-server")
+
+    implementation "org.springframework.boot:spring-boot-starter-web:$springboot_ver"
+    implementation 'org.springdoc:springdoc-openapi-ui:1.6.4'
+    implementation "org.springframework:spring-tx:5.3.15"
+    implementation "org.springframework.boot:spring-boot-starter-validation:$springboot_ver"
+}
