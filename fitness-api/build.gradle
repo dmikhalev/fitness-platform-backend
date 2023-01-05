@@ -7,3 +7,8 @@ compileJava {
             '-Amapstruct.unmappedTargetPolicy=ERROR'
     ]
 }
+dependencies {
+    implementation "org.springframework.boot:spring-web:5.3.24"
+    implementation "com.fasterxml.jackson.core:jackson-databind:2.0.1"
+    implementation "org.springframework.boot:spring-boot-starter-web:2.6.3"
+}
