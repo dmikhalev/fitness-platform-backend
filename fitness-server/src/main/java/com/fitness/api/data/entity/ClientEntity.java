@@ -5,7 +5,6 @@ import javax.persistence.*;
 import com.sun.istack.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.OnDelete;
 
 import java.time.LocalDateTime;
 import java.util.Calendar;
@@ -13,6 +12,7 @@ import java.util.List;
 
 @Entity
 @Data
+@NoArgsConstructor
 public class ClientEntity {
     @Id
     @GeneratedValue

@@ -3,10 +3,9 @@ task wrapper(type: Wrapper) {
 }
 dependencies {
     implementation project(":fitness-api")
-
+    implementation "org.springframework.boot:spring-boot-starter-web:$springboot_ver"
     implementation "org.mapstruct:mapstruct:$mapstruct_ver"
     annotationProcessor "org.mapstruct:mapstruct-processor:$mapstruct_ver"
-
     runtimeOnly 'org.postgresql:postgresql:42.2.18'
     implementation "org.springframework.boot:spring-boot-starter-data-jpa:$springboot_ver"
     apiElements "org.springframework.data:spring-data-jpa:$spring_data_ver"
