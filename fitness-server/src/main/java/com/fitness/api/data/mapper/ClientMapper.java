@@ -1,6 +1,6 @@
 package com.fitness.api.data.mapper;
 
-import com.fitness.api.data.entity.ClientEntity;
+import com.fitness.api.data.entity.SystemUserEntity;
 import com.fitness.api.dto.ClientCreationDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -23,5 +23,5 @@ public interface ClientMapper {
             @Mapping(source = "phone", target = "phone"),
 
     })
-    ClientEntity clientDtoToClient(ClientCreationDto clientCreationDto);
+    SystemUserEntity clientDtoToClient(ClientCreationDto clientCreationDto);
 }

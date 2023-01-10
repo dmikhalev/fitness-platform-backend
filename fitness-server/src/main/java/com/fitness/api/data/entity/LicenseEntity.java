@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Data
+@Table(name = "license")
 @NoArgsConstructor
 public class LicenseEntity {
     @Id
@@ -24,5 +25,5 @@ public class LicenseEntity {
 
     @ManyToOne
     @JoinColumn(name="client_id")
-    private ClientEntity client;
+    private SystemUserEntity client;
 }
