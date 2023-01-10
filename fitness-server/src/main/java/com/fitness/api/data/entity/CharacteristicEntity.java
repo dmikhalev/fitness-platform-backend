@@ -26,7 +26,7 @@ public class CharacteristicEntity {
 
     @ManyToOne
     @JoinColumn(name="client_id")
-    private SystemUserEntity client;
+    private ClientEntity client;
 
     @PrePersist
     void onCreate() {

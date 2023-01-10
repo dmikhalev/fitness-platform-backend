@@ -1,15 +1,17 @@
 package com.fitness.api.controller;
 
-import com.fitness.api.dto.ClientCreationDto;
+import com.fitness.api.dto.client.ClientCreateDto;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
-@RequestMapping("/client")
+@RequestMapping("/api/client")
 public interface ClientController {
 
     @PostMapping("/save")
-    void createClient(@Valid @RequestBody ClientCreationDto clientCreationDto);
+    ResponseEntity<Object> createClient(@Valid @RequestBody ClientCreateDto clientCreateDto);
+
 
 }
 

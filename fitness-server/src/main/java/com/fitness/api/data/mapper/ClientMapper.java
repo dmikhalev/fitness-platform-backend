@@ -1,7 +1,8 @@
 package com.fitness.api.data.mapper;
 
-import com.fitness.api.data.entity.SystemUserEntity;
-import com.fitness.api.dto.ClientCreationDto;
+import com.fitness.api.data.entity.ClientEntity;
+import com.fitness.api.dto.client.ClientCreateDto;
+import com.fitness.api.dto.security.currentUser.ClientInfoDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
@@ -14,14 +15,24 @@ public interface ClientMapper {
     ClientMapper INSTANCE = Mappers.getMapper(ClientMapper.class);
 
     @Mappings({
-            @Mapping(source = "username", target = "username"),
             @Mapping(source = "birthday", target = "birthday"),
-            @Mapping(source = "firstName", target = "firstName"),
-            @Mapping(source = "lastName", target = "lastName"),
-            @Mapping(source = "password", target = "password"),
+            @Mapping(source = "name", target = "name"),
             @Mapping(source = "email", target = "email"),
             @Mapping(source = "phone", target = "phone"),
 
     })
-    SystemUserEntity clientDtoToClient(ClientCreationDto clientCreationDto);
+    ClientEntity clientDtoToClient(ClientCreateDto clientCreateDto);
+
+    @Mappings({
+            @Mapping(source = "baseUserEntity.username", target = "username"),
+            @Mapping(source = "baseUserEntity.role", target = "role"),
+            @Mapping(source = "birthday", target = "birthday"),
+            @Mapping(source = "name", target = "name"),
+            @Mapping(source = "email", target = "email"),
+            @Mapping(source = "phone", target = "phone"),
+
+    })
+    ClientInfoDto clientEntityToClientInfoDto(ClientEntity clientEntity);
+
+
 }

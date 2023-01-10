@@ -5,25 +5,29 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "system_user")
 @Data
-@Table(name = "license")
 @NoArgsConstructor
-public class LicenseEntity {
+public class SystemUser {
     @Id
     @GeneratedValue
     @Column(insertable = false, updatable = false)
     private long id;
 
     @NotNull
-    private LocalDateTime startDate;
+    private String firstName;
 
     @NotNull
-    private LocalDateTime finishDate;
+    private String middleName;
 
-    @ManyToOne
-    @JoinColumn(name="client_id")
-    private ClientEntity client;
+    @NotNull
+    private String lastName;
+
+    @NotNull
+    private String phone;
+
+    @NotNull
+    private String email;
 }

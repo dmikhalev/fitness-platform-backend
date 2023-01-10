@@ -11,9 +11,13 @@ dependencies {
     apiElements "org.springframework.data:spring-data-jpa:$spring_data_ver"
     implementation "jakarta.xml.bind:jakarta.xml.bind-api:2.3.2"
     implementation "org.glassfish.jaxb:jaxb-runtime:2.3.2"
-    implementation 'org.springframework.security:spring-security-core:5.3.7'
-    implementation 'org.springframework.boot:spring-boot-starter-security'
-    implementation 'io.jsonwebtoken:jjwt:0.2'
+    implementation 'org.springframework.security:spring-security-core:5.7.6'
+    implementation 'org.springframework.boot:spring-boot-starter-security:2.6.3'
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+    implementation 'io.jsonwebtoken:jjwt-impl:0.11.5'
+    implementation 'io.jsonwebtoken:jjwt-jackson:0.11.5'
+
+
 }
 
 compileJava {

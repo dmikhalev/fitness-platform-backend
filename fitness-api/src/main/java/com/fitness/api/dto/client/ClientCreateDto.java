@@ -1,32 +1,25 @@
-package com.fitness.api.dto;
+package com.fitness.api.dto.client;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-import java.util.Calendar;
+import java.time.LocalDate;
 
 @Data
-public class ClientCreationDto {
+public class ClientCreateDto {
     @NotBlank
     @Size(min = 2, max = 50)
     private String username;
 
-    @NotBlank
-    private Calendar birthday;
+    @JsonFormat(pattern="yyyy-MM-dd")
+    private LocalDate birthday;
 
-    @NotBlank
     @Size(min = 2, max = 50)
-    private String firstName;
-
-    @NotBlank
-    @Size(min = 2, max = 50)
-    private String lastName;
-
-    @NotBlank
-    @Size(min = 8, max = 50)
-    private String password;
+    private String name;
 
     @NotBlank
     @Pattern(regexp = "^(.+)@(\\S+)$")
@@ -34,4 +27,8 @@ public class ClientCreationDto {
 
     @NotBlank
     private String phone;
+
+    private CharacteristicDto characteristicDto;
+
+    private int dayOfLicense;
 }
