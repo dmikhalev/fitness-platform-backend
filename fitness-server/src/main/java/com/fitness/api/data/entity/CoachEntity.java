@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 
 @Data
@@ -43,7 +44,13 @@ public class CoachEntity {
     @NotNull
     private int workExperience;
 
-    @OneToOne(cascade = CascadeType.ALL,  optional = false, fetch = FetchType.LAZY)
+    @OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.LAZY)
     private BaseUserEntity baseUserEntity;
 
+    @OneToMany(mappedBy = "coach", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<TrainingProgramEntity> TrainingProgramEntityList;
+
+    public String getFullName() {
+        return firstName + " " + middleName + " " + lastName;
+    }
 }

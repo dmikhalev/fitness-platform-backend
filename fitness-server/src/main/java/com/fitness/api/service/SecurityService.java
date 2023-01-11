@@ -1,6 +1,7 @@
 package com.fitness.api.service;
 
 import com.fitness.api.data.entity.BaseUserEntity;
+import com.fitness.api.data.entity.CoachEntity;
 import com.fitness.api.data.mapper.BaseUserMapper;
 import com.fitness.api.data.mapper.ClientMapper;
 import com.fitness.api.data.mapper.CoachMapper;
@@ -11,6 +12,8 @@ import com.fitness.api.dto.security.LoginUserDto;
 import com.fitness.api.dto.security.currentUser.BaseUserDto;
 import com.fitness.api.security.JwtSupplier;
 import lombok.AllArgsConstructor;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -63,5 +66,14 @@ public class SecurityService {
             }
         }
         throw new EntityNotFoundException();
+    }
+
+    public CoachEntity getCurrentCoach() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (!authentication.isAuthenticated()) {
+            return null;
+        }
+        var baseUserEntity = baseUserRepository.findByUsername(authentication.getName());
+        return coachService.getCoachEntityByBaseUser(baseUserEntity);
     }
 }
