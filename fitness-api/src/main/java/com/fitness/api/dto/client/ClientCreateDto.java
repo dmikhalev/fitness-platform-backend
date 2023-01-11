@@ -28,7 +28,4 @@ public class ClientCreateDto {
     @NotBlank
     private String phone;
 
-    private CharacteristicDto characteristicDto;
-
-    private int dayOfLicense;
 }
