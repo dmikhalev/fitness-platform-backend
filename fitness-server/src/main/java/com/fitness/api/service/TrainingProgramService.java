@@ -60,7 +60,7 @@ public class TrainingProgramService {
         boolean isReleased = trainingProgramReleaseDto.isReleased();
         if (trainingProgram.getIsReleased() != isReleased) {
             trainingProgram.setIsReleased(isReleased);
-
+            trainingProgramRepository.save(trainingProgram);
         }
     }
 

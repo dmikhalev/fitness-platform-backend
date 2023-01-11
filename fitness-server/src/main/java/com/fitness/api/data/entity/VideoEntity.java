@@ -14,7 +14,7 @@ import javax.persistence.*;
 public class VideoEntity {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(insertable = false, updatable = false)
     private long id;
 

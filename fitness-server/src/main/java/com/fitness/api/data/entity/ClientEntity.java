@@ -15,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 public class ClientEntity {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(insertable = false, updatable = false)
     private long id;
 

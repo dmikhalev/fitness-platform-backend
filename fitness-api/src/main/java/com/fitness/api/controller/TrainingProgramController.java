@@ -19,7 +19,7 @@ public interface TrainingProgramController {
     @PutMapping("/release")
     ResponseEntity<Object> releaseTrainingProgram(@Valid @RequestBody TrainingProgramReleaseDto trainingProgramReleaseDto);
 
-    @GetMapping("/get-relevant-training-programs/{type}")
+    @GetMapping("/get-relevant/{type}")
     ResponseEntity<List<TrainingProgramDto>> getRelevantTrainingPrograms(@PathVariable String type);
 
     @GetMapping("/get/{id}")
