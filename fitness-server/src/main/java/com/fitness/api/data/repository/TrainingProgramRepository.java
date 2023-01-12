@@ -14,5 +14,8 @@ public interface TrainingProgramRepository extends JpaRepository<TrainingProgram
 
     List<TrainingProgramEntity> findByTypeAndCoach(String type, CoachEntity coach);
 
-    List<TrainingProgramEntity> findByType(String type);
+    List<TrainingProgramEntity> findByTypeAndIsReleasedTrue(String type);
+
+    List<TrainingProgramEntity> findAllByIsReleasedIsFalse();
+
 }

@@ -48,4 +48,10 @@ public class TrainingProgramControllerImp implements TrainingProgramController {
         FullTrainingProgramDto trainingProgram = trainingProgramService.getFullTrainingProgramById(id);
         return ResponseEntity.ok(trainingProgram);
     }
+
+    @Override
+    public ResponseEntity<List<TrainingProgramDto>> getNotReleasedTrainingPrograms() {
+        List<TrainingProgramDto> trainingProgramDtos = trainingProgramService.getNotReleasedTrainingPrograms();
+        return ResponseEntity.ok(trainingProgramDtos);
+    }
 }

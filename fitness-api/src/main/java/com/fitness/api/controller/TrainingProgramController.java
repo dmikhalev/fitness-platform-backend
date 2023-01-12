@@ -24,5 +24,8 @@ public interface TrainingProgramController {
 
     @GetMapping("/get/{id}")
     ResponseEntity<FullTrainingProgramDto> getFullTrainingProgramById(@PathVariable Long id);
+
+    @GetMapping("/get-not-released")
+    ResponseEntity<List<TrainingProgramDto>> getNotReleasedTrainingPrograms();
 }
 

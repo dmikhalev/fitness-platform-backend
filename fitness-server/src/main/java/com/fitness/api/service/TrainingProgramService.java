@@ -65,17 +65,30 @@ public class TrainingProgramService {
     }
 
     public List<TrainingProgramDto> getTrainingProgramsByType(String type) {
-        List<TrainingProgramEntity> trainingPrograms = trainingProgramRepository.findByType(type);
+        List<TrainingProgramEntity> trainingPrograms = trainingProgramRepository.findByTypeAndIsReleasedTrue(type);
         if (trainingPrograms == null) {
             return Collections.emptyList();
         }
+        return toDtos(trainingPrograms);
+    }
+
+    public List<TrainingProgramDto> getNotReleasedTrainingPrograms() {
+        List<TrainingProgramEntity> trainingPrograms = trainingProgramRepository.findAllByIsReleasedIsFalse();
+        if (trainingPrograms == null) {
+            return Collections.emptyList();
+        }
+        return toDtos(trainingPrograms);
+    }
+
+    private List<TrainingProgramDto> toDtos(List<TrainingProgramEntity> trainingPrograms) {
         return trainingPrograms.stream()
                 .map(prog -> new TrainingProgramDto(
                         prog.getId(),
                         prog.getTitle(),
                         prog.getDescription(),
                         prog.getType(),
-                        prog.getCreationDate()
+                        prog.getCreationDate(),
+                        prog.getIsReleased()
                 )).toList();
     }
 

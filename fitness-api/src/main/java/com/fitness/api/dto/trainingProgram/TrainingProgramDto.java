@@ -26,4 +26,7 @@ public class TrainingProgramDto {
 
     @NotBlank
     private LocalDate creationDate;
+
+    @NotBlank
+    private boolean isReleased;
 }
